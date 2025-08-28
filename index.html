@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ALHAMOOR – الرئيسية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f2ea;           /* بيج فاتح */
+      --panel:#ffffff;        /* أبيض */
+      --ink:#231f1a;          /* نص أسود دافئ */
+      --muted:#6d655c;        /* نص ثانوي */
+      --gold:#c8a74a;         /* ذهبي */
+      --gold-strong:#b28f2f;  /* ذهبي داكن */
+      --accent:#d85c4b;       /* أحمر طوبي للشماغ */
+      --radius:20px;
+      --shadow:0 10px 30px rgba(0,0,0,.06);
+      --container:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Cairo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.7;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--container);margin-inline:auto;padding:0 16px}
+
+    /* رأس الصفحة */
+    .topbar{background:var(--panel); border-bottom:1px solid #eee; position:sticky; top:0; z-index:50;}
+    .topbar-inner{display:flex; align-items:center; justify-content:space-between; height:70px; gap:16px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.5px; color:var(--gold-strong)}
+    .brand .logo{width:34px; height:34px; border-radius:50%; background:linear-gradient(145deg,#fff 0%, #f1e7cf 100%); border:2px solid var(--gold); display:grid; place-items:center; font-weight:800}
+    nav ul{list-style:none; display:flex; gap:20px; padding:0; margin:0}
+    nav a{padding:10px 14px; border-radius:999px; transition:.2s ease}
+    nav a:hover{background:#f1e7cf}
+    .cta-mini{background:var(--gold); color:white; padding:10px 16px; border-radius:999px; border:none; font-weight:700; cursor:pointer}
+    .cta-mini:hover{background:var(--gold-strong)}
+
+    /* البطل */
+    .hero{background:linear-gradient(180deg, #efe6d7, #f7f2ea);}
+    .hero-inner{display:grid; grid-template-columns:1.2fr .8fr; gap:30px; align-items:center; padding:50px 0}
+    .hero h1{font-size:40px; margin:0 0 10px; letter-spacing:.3px}
+    .hero p{margin:0 0 24px; color:var(--muted)}
+    .btn{display:inline-block; background:var(--gold); color:#fff; padding:14px 26px; border-radius:999px; font-weight:800; border:none; cursor:pointer; transition:.2s ease; box-shadow:var(--shadow)}
+    .btn:hover{background:var(--gold-strong)}
+    .hero-card{background:var(--panel); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px}
+    .hero-card img{width:100%; height:auto; display:block; border-radius:16px}
+
+    /* العناوين */
+    .section{padding:40px 0}
+    .section h2{font-size:28px; margin:0 0 18px}
+    .section .lead{color:var(--muted); margin-top:-8px; margin-bottom:20px}
+
+    /* شبكة المنتجات */
+    .grid{display:grid; gap:18px}
+    .grid.cols-4{grid-template-columns:repeat(4, 1fr)}
+    .grid.cols-3{grid-template-columns:repeat(3, 1fr)}
+    .card{background:var(--panel); border-radius:var(--radius); padding:14px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:12px}
+    .thumb{aspect-ratio: 1 / 1; border-radius:14px; overflow:hidden; background:#f2e6d5; display:grid; place-items:center}
+    .thumb img{width:100%; height:100%; object-fit:cover}
+    .price{font-weight:800}
+    .badge{display:inline-block; background:#f3ead2; color:#876; padding:6px 10px; border-radius:999px; font-size:12px}
+    .buy{margin-top:auto}
+    .buy .btn{width:100%; text-align:center}
+
+    /* الشهادات */
+    .quote{background:var(--panel); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); font-weight:600}
+
+    /* تذييل */
+    footer{margin-top:40px; padding:30px 0 60px; background:var(--panel); border-top:1px solid #eee}
+    .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:20px}
+    .muted{color:var(--muted)}
+
+    /* تجاوبية */
+    @media (max-width: 980px){
+      .hero-inner{grid-template-columns:1fr}
+      .grid.cols-4{grid-template-columns:repeat(2, 1fr)}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      nav ul{display:none}
+    }
+    @media (max-width: 580px){
+      .grid.cols-4{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:1fr}
+      .hero h1{font-size:30px}
+    }
+  </style>
+</head>
+<body>
+  <!-- رأس الصفحة -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#">
+        <span class="logo">∞</span>
+        <span>ALHAMOOR</span>
+      </a>
+      <nav aria-label="القائمة الرئيسية">
+        <ul>
+          <li><a href="#featured">الرئيسية</a></li>
+          <li><a href="#offers">العروض</a></li>
+          <li><a href="#new">الجديد</a></li>
+          <li><a href="#testimonials">المراجعات</a></li>
+          <li><a href="#faq">الأسئلة</a></li>
+          <li><a href="#contact">تواصل</a></li>
+        </ul>
+      </nav>
+      <button class="cta-mini" onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">تسوق الآن</button>
+    </div>
+  </header>
+
+  <!-- قسم البطل -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <h1>الفخامة والتميّز<br> لكل مناسبة</h1>
+        <p>مختارات أنيقة من الغُتر والشماغ والأكسسوارات الأصلية بتفاصيل ذهبية ولمسة خليجية أصيلة.</p>
+        <a class="btn" href="#featured">ابدأ التسوق</a>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <img alt="صورة رئيسية لشماغ فاخر" src="https://via.placeholder.com/800x640?text=Hero+Image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- المنتجات المميزة -->
+  <section id="featured" class="section">
+    <div class="container">
+      <h2>المنتجات المميزة</h2>
+      <p class="lead">أفضل الاختيارات لهذا الموسم</p>
+      <div class="grid cols-4">
+        <!-- بطاقة 1 -->
+        <article class="card">
+          <div class="thumb">
+            <img alt="شماغ أحمر" src="https://via.placeholder.com/800x800?text=%D8%B4%D9%85%D8%A7%D8%BA+%D8%A3%D8%AD%D9%85%D8%B1" />
+          </div>
+          <div class="badge">أحدث السنة</div>
+          <h3 style="margin:6px 0 0">مقـاء العيد</h3>
+          <div class="price">49.00 AED</div>
+          <div class="buy"><a class="btn" href="#">أضف للسلة</a></div>
+        </article>
+        <!-- بطاقة 2 -->
+        <article class="card">
+          <div class="thumb">
+            <img alt="طقم للرجل" src="https://via.placeholder.com/800x800?text=%D8%B7%D9%82%D9%85+%D8%B9%D9%8A%D8%AF" />
+          </div>
+          <div class="badge">أحدث السنة</div>
+          <h3 style="margin:6px 0 0">طقم عبيد</h3>
+          <div class="price">95.00 AED</div>
+          <div class="buy"><a class="btn" href="#">أضف للسلة</a></div>
+        </article>
+        <!-- بطاقة 3 -->
+        <article class="card">
+          <div class="thumb">
+            <img alt="شال بيج" src="https://via.placeholder.com/800x800?text=%D8%B4%D8%A7%D9%84+%D8%A8%D9%8A%D8%AC" />
+          </div>
+          <div class="badge">السنة البيضاء</div>
+          <h3 style="margin:6px 0 0">لعام أموم</h3>
+          <div class="price">99.00 AED</div>
+          <div class="buy"><a class="btn" href="#">أضف للسلة</a></div>
+        </article>
+        <!-- بطاقة 4 -->
+        <article class="card">
+          <div class="thumb">
+            <img alt="شماغ أحمر" src="https://via.placeholder.com/800x800?text=%D8%B4%D9%85%D8%A7%D8%BA+%D8%A3%D8%AD%D9%85%D8%B1" />
+          </div>
+          <div class="badge">أحدث السنة</div>
+          <h3 style="margin:6px 0 0">أكبر العيد</h3>
+          <div class="price">78.00 AED</div>
+          <div class="buy"><a class="btn" href="#">أضف للسلة</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- العروض -->
+  <section id="offers" class="section" style="padding-top:0">
+    <div class="container">
+      <h2>العروض العملاء</h2>
+      <p class="lead">خصومات موسمية على مختارات مختارة</p>
+      <div class="grid cols-3">
+        <article class="card">
+          <div class="thumb"><img alt="شمال الممير" src="https://via.placeholder.com/800x800?text=%D8%B4%D9%85%D8%A7%D9%84+%D8%A7%D9%84%D9%85%D9%85%D9%8A%D8%B1"></div>
+          <h3 style="margin:6px 0 0">شمال الممير</h3>
+          <div class="price">299.00 AED <span class="muted" style="font-weight:600">بدلاً من 349</span></div>
+          <div class="badge">اصمن الأن</div>
+          <div class="buy"><a class="btn" href="#">أضف للسلة</a></div>
+        </article>
+        <article class="card">
+          <div class="thumb"><img alt="طقم عباءة" src="https://via.placeholder.com/800x800?text=%D8%B7%D9%82%D9%85+%D9%85%D8%B3%D8%B1"></div>
+          <h3 style="margin:6px 0 0">طقم جَبَّة مُسِر</h3>
+          <div class="price">أقل 30 AED</div>
+          <div class="badge">حتى 23%</div>
+          <div class="buy"><a class="btn" href="#">أضف للسلة</a></div>
+        </article>
+        <article class="card">
+          <div class="thumb"><img alt="طقم غترة" src="https://via.placeholder.com/800x800?text=%D8%B7%D9%82%D9%85+%D8%BA%D8%AA%D8%B1%D8%A9"></div>
+          <h3 style="margin:6px 0 0">طقم غُترة</h3>
+          <div class="price">خصم 36%</div>
+          <div class="badge">وفر 24%</div>
+          <div class="buy"><a class="btn" href="#">أضف للسلة</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- شهادات العملاء -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <h2>شهادات العملاء</h2>
+      <div class="grid cols-3">
+        <blockquote class="quote">"تصاميم فاخرة وجودة ممتازة.. التوصيل سريع وخدمة رائعة!" – أحمد</blockquote>
+        <blockquote class="quote">"ألوان هادئة وتغليف أنيق. بالتأكيد سأكرر الشراء." – فاطمة</blockquote>
+        <blockquote class="quote">"أفضل متجر للشماغ والغُتر بأسعار منافسة." – سالم</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- أسئلة شائعة مختصرة -->
+  <section id="faq" class="section">
+    <div class="container">
+      <h2>الأسئلة الشائعة</h2>
+      <details class="card"><summary><strong>هل الشحن داخل الإمارات؟</strong></summary><p class="muted">نعم، شحن سريع داخل دولة الإمارات وخيارات دولية عند الطلب.</p></details>
+      <details class="card"><summary><strong>ما هي طرق الدفع المتاحة؟</strong></summary><p class="muted">بطاقات الائتمان والدفع عند الاستلام في مدن محددة.</p></details>
+    </div>
+  </section>
+
+  <!-- تواصل وتذييل -->
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:8px"><span class="logo">∞</span><span>ALHAMOOR</span></div>
+        <p class="muted">متجر إلكتروني للأزياء الخليجية العريقة – جودة فاخرة وتفاصيل ذهبية.</p>
+      </div>
+      <div>
+        <h3 style="margin-top:0">روابط</h3>
+        <ul style="list-style:none; padding:0; margin:0; display:grid; gap:6px">
+          <li><a href="#featured">المنتجات</a></li>
+          <li><a href="#offers">العروض</a></li>
+          <li><a href="#faq">الأسئلة</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-top:0">تواصل</h3>
+        <p class="muted">البريد: support@alhamoor.ae<br>الهاتف: 0000 000 050</p>
+        <a class="btn" href="#">واتساب مباشر</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
